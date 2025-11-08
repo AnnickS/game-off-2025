@@ -3,8 +3,6 @@ using System;
 
 public partial class State : Node
 {
-
-    /* add ref to controller */
     public Controller StateController { get; set; }
 
     public virtual void Enter()
@@ -29,5 +27,6 @@ public partial class State : Node
 
     public virtual void Input(InputEvent @event)
     {
+        return;
     }
 }

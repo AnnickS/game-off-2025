@@ -34,7 +34,7 @@ public partial class Controller : Node
     {
         if (CurrentState != null)
         {
-            CurrentState.Update(delta);
+            CurrentState.Process(delta);
         }
         base._Process(delta);
     }
