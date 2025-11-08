@@ -4,7 +4,8 @@ using System;
 public partial class State : Node
 {
 
-/* add ref to controller */
+    /* add ref to controller */
+    public Controller StateController { get; set; }
 
     public void Enter()
     {
@@ -16,19 +17,17 @@ public partial class State : Node
         return;
     }
 
-    public void Update()
+    public void Update(double delta)
     {
         return;
     }
 
-    public void Physics_Process(double delta)
+    public void PhysicsProcess(double delta)
     {
         return;
     }
 
-    public override void _Input(InputEvent @event)
+    public void Input(InputEvent @event)
     {
-        base._Input(@event);
     }
-
 }
