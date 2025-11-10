@@ -15,6 +15,10 @@ run/main_scene="uid://de4r4nti1wte1"
 config/features=PackedStringArray("4.5", "C#", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalAutoload="*res://Scripts/GlobalAutoload.cs"
+
 [dotnet]
 
 project/assembly_name="Game Off 2025"
