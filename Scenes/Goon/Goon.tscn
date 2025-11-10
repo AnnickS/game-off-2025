@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv7e44450qirl"]
+[gd_scene load_steps=3 format=3 uid="uid://bv7e44450qirl"]
 
+[ext_resource type="Script" uid="uid://drw4rvrgalc7u" path="res://Scenes/Goon/Goon.cs" id="1_0u6fc"]
 [ext_resource type="Texture2D" uid="uid://chyrnr2hivevu" path="res://angry_godot.svg" id="1_b4qgb"]
 
 [node name="Goon" type="Node2D"]
+script = ExtResource("1_0u6fc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_b4qgb")
