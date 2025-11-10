@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://de4r4nti1wte1"]
+[gd_scene load_steps=3 format=3 uid="uid://de4r4nti1wte1"]
 
 [ext_resource type="PackedScene" uid="uid://lrxjibncyiel" path="res://Scenes/Hero/Hero.tscn" id="1_vbawi"]
+[ext_resource type="PackedScene" uid="uid://bv7e44450qirl" path="res://Scenes/Goon/Goon.tscn" id="2_3hkb6"]
 
 [node name="Level" type="Node2D"]
 
 [node name="Hero" parent="." instance=ExtResource("1_vbawi")]
 position = Vector2(573, 342)
+
+[node name="Goon" parent="." instance=ExtResource("2_3hkb6")]
+position = Vector2(120, 96)
