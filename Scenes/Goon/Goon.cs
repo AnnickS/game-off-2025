@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Goon : Node2D
+public partial class Goon : CharacterBody2D
 {
     [Export]
     private float Speed = 400f;

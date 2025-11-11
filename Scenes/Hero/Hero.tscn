@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://lrxjibncyiel"]
+[gd_scene load_steps=7 format=3 uid="uid://lrxjibncyiel"]
 
 [ext_resource type="Texture2D" uid="uid://cvaxghcsay80s" path="res://icon.svg" id="1_1i8wv"]
 [ext_resource type="Script" uid="uid://b2k2h6dv42qaj" path="res://Scenes/Hero/Hero.cs" id="1_af788"]
@@ -8,9 +8,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pi6ew"]
 size = Vector2(115, 116)
 
-[node name="Hero" type="Node2D" node_paths=PackedStringArray("Health")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2v08"]
+size = Vector2(114, 117)
+
+[node name="Hero" type="CharacterBody2D" node_paths=PackedStringArray("Health", "NavigationAgent")]
 script = ExtResource("1_af788")
 Health = NodePath("HealthComponent")
+NavigationAgent = NodePath("NavigationAgent2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1i8wv")
@@ -23,3 +27,15 @@ position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_pi6ew")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_5lc4s")]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 104.27
+max_speed = 400.0
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0, 0.23137255, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1.5)
+shape = SubResource("RectangleShape2D_m2v08")

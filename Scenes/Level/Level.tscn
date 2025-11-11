@@ -10,6 +10,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, -2, 1150, 0, 1146, 6
 
 [node name="Level" type="Node2D"]
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_3hkb6")
+
 [node name="Hero" parent="." instance=ExtResource("1_vbawi")]
 position = Vector2(573, 342)
 
@@ -17,10 +20,7 @@ position = Vector2(573, 342)
 position = Vector2(132, 134)
 
 [node name="Goon2" parent="." instance=ExtResource("2_3hkb6")]
-position = Vector2(853, 220)
+position = Vector2(897, 530)
 
 [node name="Goon3" parent="." instance=ExtResource("2_3hkb6")]
-position = Vector2(401, 420)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_3hkb6")
+position = Vector2(284, 514)
