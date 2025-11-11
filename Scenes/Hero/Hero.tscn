@@ -1,10 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://lrxjibncyiel"]
+[gd_scene load_steps=6 format=3 uid="uid://lrxjibncyiel"]
 
 [ext_resource type="Texture2D" uid="uid://cvaxghcsay80s" path="res://icon.svg" id="1_1i8wv"]
 [ext_resource type="Script" uid="uid://b2k2h6dv42qaj" path="res://Scenes/Hero/Hero.cs" id="1_af788"]
+[ext_resource type="PackedScene" uid="uid://dpxle3dc2k0kj" path="res://Scenes/Shared_Components/HurtBox.tscn" id="3_m2v08"]
+[ext_resource type="PackedScene" uid="uid://fgo3biety3ux" path="res://Scenes/Shared_Components/HealthComponent.tscn" id="4_5lc4s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pi6ew"]
+size = Vector2(115, 116)
 
 [node name="Hero" type="Node2D"]
 script = ExtResource("1_af788")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1i8wv")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("Health") instance=ExtResource("3_m2v08")]
+Health = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_pi6ew")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_5lc4s")]

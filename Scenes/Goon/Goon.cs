@@ -10,5 +10,4 @@ public partial class Goon : Node2D
         base._PhysicsProcess(delta);
         Position += Position.DirectionTo(GlobalAutoload.Instance.Hero.Position) * Speed * (float)delta;
     }
-
 }
