@@ -26,6 +26,7 @@ public partial class Hero : Node2D
 
     private void Die()
     {
+        GlobalAutoload.Instance.Hero = null;
         QueueFree();
     }
 }
