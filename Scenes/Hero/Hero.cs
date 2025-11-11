@@ -8,4 +8,26 @@ public partial class Hero : Node2D
         base._EnterTree();
         GlobalAutoload.Instance.Hero = this;
     }
+
+    public override void _Ready()
+    {
+        base._Ready();
+        GetHealthComponent().HealthDepleted += Die;
+    }
+
+    public override void _ExitTree()
+    {
+        GetHealthComponent().HealthDepleted -= Die;
+        base._ExitTree();
+    }
+
+    private void Die()
+    {
+        QueueFree();
+    }
+
+    private HealthComponent GetHealthComponent()
+    {
+        return GetNode<HealthComponent>("HealthComponent");
+    }
 }
