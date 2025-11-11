@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 
 public partial class Controller : Node
 {
-    [ExportAttribute]
+    [Export]
     public Character CharacterOwner { get; private set; }
-    [ExportAttribute]
+    [Export]
     State InitialState;
     State CurrentState;
     [Export]
@@ -22,8 +22,8 @@ public partial class Controller : Node
             if(Child is State)
             {
                 State ChildState = (State)Child;
-                States[ChildState.Name.ToString().ToLower()] = ChildState as State;
                 ChildState.StateController = this;
+                States[ChildState.Name.ToString().ToLower()] = ChildState;
             }
         }
 
