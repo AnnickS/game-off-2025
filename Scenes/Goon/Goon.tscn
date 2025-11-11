@@ -7,9 +7,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldwek"]
 size = Vector2(114, 112.5)
 
-[node name="Goon" type="Node2D" node_paths=PackedStringArray("Attack")]
+[node name="Goon" type="Node2D" node_paths=PackedStringArray("Attack", "NavigationAgent")]
 script = ExtResource("1_0u6fc")
 Attack = NodePath("AttackComponent")
+NavigationAgent = NodePath("NavigationAgent2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_b4qgb")
@@ -20,3 +21,6 @@ damage = 40
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
 position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_ldwek")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
