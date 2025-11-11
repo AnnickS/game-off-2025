@@ -4,23 +4,24 @@
 [ext_resource type="PackedScene" uid="uid://bv7e44450qirl" path="res://Scenes/Goon/Goon.tscn" id="2_3hkb6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3hkb6"]
-vertices = PackedVector2Array(1139.9297, 9.9765625, 1136.0625, 640.0078, 7.0390625, 641.97656, 9.953125, 8.0078125)
+vertices = PackedVector2Array(1111.7188, 597.0078, 44.09375, 598.97656, 48.90625, 69.92969, 1097.2578, 63.0625)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(0, -2, 1150, 0, 1146, 650, -3, 652)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(39, 60, 1107, 53, 1122, 607, 34, 609)])
 
 [node name="Level" type="Node2D"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(62, 60)
 navigation_polygon = SubResource("NavigationPolygon_3hkb6")
 
 [node name="Hero" parent="." instance=ExtResource("1_vbawi")]
-position = Vector2(573, 342)
+position = Vector2(635, 402)
 
 [node name="Goon" parent="." instance=ExtResource("2_3hkb6")]
-position = Vector2(132, 134)
+position = Vector2(194, 194)
 
 [node name="Goon2" parent="." instance=ExtResource("2_3hkb6")]
-position = Vector2(897, 530)
+position = Vector2(959, 590)
 
 [node name="Goon3" parent="." instance=ExtResource("2_3hkb6")]
-position = Vector2(284, 514)
+position = Vector2(346, 574)

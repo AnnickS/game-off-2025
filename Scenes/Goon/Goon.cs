@@ -12,22 +12,35 @@ public partial class Goon : CharacterBody2D
     [Export]
     private NavigationAgent2D NavigationAgent;
 
+    [Export]
+    private Timer RecalulatePathTimer;
+
     public override void _Ready()
     {
         base._Ready();
         Attack.HitHurtbox += QueueFree;
-        CallDeferred("SetupMovement");
+        RecalulatePathTimer.Timeout += RecalculatePath;
+        CallDeferred("SetMovementTarget");
     }
 
-    private void SetupMovement()
+    private void SetMovementTarget()
     {
         NavigationAgent.TargetPosition = GlobalAutoload.Instance.Hero.GlobalPosition;
+    }
+
+    private void RecalculatePath()
+    {
+        if(GlobalAutoload.Instance.Hero is not null)
+        {
+            SetMovementTarget();
+        }
     }
 
     public override void _ExitTree()
     {
         base._ExitTree();
         Attack.HitHurtbox -= QueueFree;
+        RecalulatePathTimer.Timeout -= RecalculatePath;
     }
 
     public override void _PhysicsProcess(double delta)

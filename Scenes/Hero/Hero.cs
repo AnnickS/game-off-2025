@@ -24,8 +24,7 @@ public partial class Hero : CharacterBody2D
             return;
         }
 
-
-        Vector2 PlannedVelocity = ToLocal(NavigationAgent.GetNextPathPosition()).Normalized() * 400f;
+        Vector2 PlannedVelocity = ToLocal(NavigationAgent.GetNextPathPosition()).Normalized() * 425f;
         NavigationAgent.Velocity = PlannedVelocity;
     }
     

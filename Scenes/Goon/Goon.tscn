@@ -5,32 +5,37 @@
 [ext_resource type="PackedScene" uid="uid://562lheje0e3g" path="res://Scenes/Shared_Components/AttackComponent.tscn" id="2_ldwek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldwek"]
-size = Vector2(114, 112.5)
+size = Vector2(49.5, 49.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7x6w"]
-size = Vector2(113, 112)
+size = Vector2(49, 52)
 
-[node name="Goon" type="CharacterBody2D" node_paths=PackedStringArray("Attack", "NavigationAgent")]
+[node name="Goon" type="CharacterBody2D" node_paths=PackedStringArray("Attack", "NavigationAgent", "RecalulatePathTimer")]
 script = ExtResource("1_0u6fc")
 Attack = NodePath("AttackComponent")
 NavigationAgent = NodePath("NavigationAgent2D")
+RecalulatePathTimer = NodePath("RecalculatePath")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4105691, 0.4105691)
 texture = ExtResource("1_b4qgb")
 
 [node name="AttackComponent" parent="." instance=ExtResource("2_ldwek")]
 damage = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
-position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_ldwek")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 0.1
 avoidance_enabled = true
-radius = 114.78
+radius = 60.67
 max_speed = 400.0
 debug_enabled = true
 
+[node name="RecalculatePath" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_c7x6w")

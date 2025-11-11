@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GlobalAutoload="*res://Scripts/GlobalAutoload.cs"
 
+[display]
+
+window/size/viewport_width=1300
+window/size/viewport_height=800
+
 [dotnet]
 
 project/assembly_name="Game Off 2025"
