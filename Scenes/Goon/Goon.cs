@@ -4,7 +4,7 @@ using System;
 public partial class Goon : CharacterBody2D
 {
     [Export]
-    private float Speed = 400f;
+    private float Speed = 275f;
 
     [Export]
     private AttackComponent Attack;
@@ -51,7 +51,8 @@ public partial class Goon : CharacterBody2D
             return;
         }
 
-        Vector2 velocity = ToLocal(NavigationAgent.GetNextPathPosition()).Normalized() * Speed;
-        Position += velocity * (float)delta;
+        Velocity = ToLocal(NavigationAgent.GetNextPathPosition()).Normalized() * Speed;
+
+        MoveAndSlide();
     }
 }

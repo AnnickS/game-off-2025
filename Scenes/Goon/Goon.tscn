@@ -7,10 +7,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldwek"]
 size = Vector2(49.5, 49.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7x6w"]
-size = Vector2(49, 52)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ldwek"]
+radius = 25.079872
 
 [node name="Goon" type="CharacterBody2D" node_paths=PackedStringArray("Attack", "NavigationAgent", "RecalulatePathTimer")]
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_0u6fc")
 Attack = NodePath("AttackComponent")
 NavigationAgent = NodePath("NavigationAgent2D")
@@ -26,6 +28,10 @@ damage = 40
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
 shape = SubResource("RectangleShape2D_ldwek")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ldwek")
+debug_color = Color(0.81363875, 4.1488707e-05, 0.6071114, 0.41960785)
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 0.1
 avoidance_enabled = true
@@ -36,6 +42,3 @@ debug_enabled = true
 [node name="RecalculatePath" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_c7x6w")

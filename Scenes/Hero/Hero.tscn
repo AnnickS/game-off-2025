@@ -8,13 +8,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pi6ew"]
 size = Vector2(54, 52)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2v08"]
-size = Vector2(60, 58.25)
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2v08"]
+radius = 25.0
 
-[node name="Hero" type="CharacterBody2D" node_paths=PackedStringArray("Health", "NavigationAgent")]
+[node name="Hero" type="CharacterBody2D" node_paths=PackedStringArray("Health", "NavigationAgent", "RecalculatePathTimer")]
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_af788")
 Health = NodePath("HealthComponent")
 NavigationAgent = NodePath("NavigationAgent2D")
+RecalculatePathTimer = NodePath("RecalculatePath")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.9999962, 1.250001)
@@ -32,7 +35,8 @@ shape = SubResource("RectangleShape2D_pi6ew")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
-radius = 60.15
+radius = 71.15
+neighbor_distance = 1235.3
 max_speed = 425.0
 avoidance_mask = 3
 debug_enabled = true
@@ -41,4 +45,9 @@ debug_path_custom_color = Color(0, 0.23137255, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_m2v08")
+shape = SubResource("CircleShape2D_m2v08")
+debug_color = Color(0.6222977, 0.28819418, 0, 0.41960785)
+
+[node name="RecalculatePath" type="Timer" parent="."]
+wait_time = 0.143
+autostart = true

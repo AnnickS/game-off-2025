@@ -27,3 +27,9 @@ window/size/viewport_height=800
 [dotnet]
 
 project/assembly_name="Game Off 2025"
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Hero"
+2d_physics/layer_3="Enemy"

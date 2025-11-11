@@ -9,6 +9,11 @@ public partial class Hero : CharacterBody2D
     [Export]
     NavigationAgent2D NavigationAgent;
 
+    [Export]
+    Timer RecalculatePathTimer;
+
+    private Vector2 CenterOfMap;
+
     public override void _EnterTree()
     {
         base._EnterTree();
@@ -24,7 +29,7 @@ public partial class Hero : CharacterBody2D
             return;
         }
 
-        Vector2 PlannedVelocity = ToLocal(NavigationAgent.GetNextPathPosition()).Normalized() * 425f;
+        Vector2 PlannedVelocity = ToLocal(NavigationAgent.GetNextPathPosition()).Normalized() * 275f;
         NavigationAgent.Velocity = PlannedVelocity;
     }
     
@@ -39,12 +44,19 @@ public partial class Hero : CharacterBody2D
     {
         base._Ready();
         Health.HealthDepleted += Die;
+        RecalculatePathTimer.Timeout += RecalculatePath;
+        CenterOfMap = GlobalPosition;
         CallDeferred("SetupMovement");
+    }
+    
+    private void RecalculatePath()
+    {
+        NavigationAgent.TargetPosition = CenterOfMap;
     }
 
     private void SetupMovement()
     {
-        NavigationAgent.TargetPosition = GlobalPosition + GlobalPosition;
+        NavigationAgent.TargetPosition = CenterOfMap;
         NavigationAgent.VelocityComputed += OnVelocityComputed;
     }
 
@@ -52,6 +64,7 @@ public partial class Hero : CharacterBody2D
     {
         Health.HealthDepleted -= Die;
         NavigationAgent.VelocityComputed -= OnVelocityComputed;
+        RecalculatePathTimer.Timeout -= RecalculatePath;
         base._ExitTree();
     }
 
