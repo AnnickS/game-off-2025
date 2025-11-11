@@ -6,6 +6,8 @@ using System.Runtime.InteropServices;
 public partial class Controller : Node
 {
     [ExportAttribute]
+    public Character CharacterOwner { get; private set; }
+    [ExportAttribute]
     State InitialState;
     State CurrentState;
     [Export]
@@ -13,6 +15,8 @@ public partial class Controller : Node
 
     public override void _Ready()
     {
+        CharacterOwner = GetParent<Character>();
+
         foreach(Node Child in this.GetChildren())
         {
             if(Child is State)
