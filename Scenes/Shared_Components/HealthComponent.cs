@@ -7,9 +7,9 @@ public partial class HealthComponent : Node
     public delegate void HealthDepletedEventHandler();
 
     [Export]
-    public double MaxHealth = 100.0;
+    public int MaxHealth = 100;
 
-    public double CurrentHealth;
+    public int CurrentHealth;
 
     public override void _EnterTree()
     {
@@ -18,11 +18,11 @@ public partial class HealthComponent : Node
     }
 
 
-    public void TakeDamage(double damageAmount)
+    public void TakeDamage(int damageAmount)
     {
         CurrentHealth -= damageAmount;
-        
-        if(CurrentHealth <= 0.0)
+
+        if(CurrentHealth <= 0)
         {
             EmitSignal(SignalName.HealthDepleted);
         }
