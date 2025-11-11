@@ -7,8 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldwek"]
 size = Vector2(114, 112.5)
 
-[node name="Goon" type="Node2D"]
+[node name="Goon" type="Node2D" node_paths=PackedStringArray("Attack")]
 script = ExtResource("1_0u6fc")
+Attack = NodePath("AttackComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_b4qgb")

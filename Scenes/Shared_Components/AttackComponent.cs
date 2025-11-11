@@ -6,6 +6,9 @@ public partial class AttackComponent : Area2D
     [Export]
     public int damage;
 
+    [Signal]
+    public delegate void HitHurtboxEventHandler();
+
     public override void _Ready()
     {
         base._Ready();
@@ -23,6 +26,7 @@ public partial class AttackComponent : Area2D
         if(areaEntered is HurtBox)
         {
             ((HurtBox)areaEntered).ReceiveAttack(damage);
+            EmitSignal(SignalName.HitHurtbox);
         }
     }
 }
