@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Game Off 2025"
-run/main_scene="uid://de4r4nti1wte1"
+run/main_scene="uid://bvosv72w12cr7"
 config/features=PackedStringArray("4.5", "C#", "Mobile")
 config/icon="res://icon.svg"
 
