@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 public partial class Level : Node2D
-{
+{    
     PackedScene PackedGoon = GD.Load<PackedScene>("res://Scenes/Goon/Goon.tscn");
     public override void _UnhandledInput(InputEvent @event)
     {
@@ -13,15 +13,6 @@ public partial class Level : Node2D
             Node2D NewGoon = PackedGoon.Instantiate<Node2D>();
             NewGoon.Position = eventMouseButton.Position;
             AddChild(NewGoon);
-        }
-    }
-
-    public override void _Input(InputEvent @event)
-    {
-        base._Input(@event);
-        if (@event.IsActionPressed("Pause_Game"))
-        {
-            GD.Print("pressed escape");
         }
     }
 }
