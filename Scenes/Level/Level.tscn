@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://de4r4nti1wte1"]
 
 [ext_resource type="Texture2D" uid="uid://bnbgdceq5tf75" path="res://bad tileset.png" id="1_4dwx7"]
+[ext_resource type="Script" uid="uid://cgr4nyfpwowvq" path="res://Scenes/Level/Level.cs" id="1_k2uda"]
 [ext_resource type="PackedScene" uid="uid://lrxjibncyiel" path="res://Scenes/Hero/Hero.tscn" id="1_vbawi"]
-[ext_resource type="PackedScene" uid="uid://bv7e44450qirl" path="res://Scenes/Goon/Goon.tscn" id="2_3hkb6"]
 [ext_resource type="Texture2D" uid="uid://dtu3vlipo31k6" path="res://bad tileset2 CORNERS NOW.png" id="2_qp1lj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4dwx7"]
@@ -76,6 +76,7 @@ sources/0 = SubResource("TileSetAtlasSource_k2uda")
 sources/1 = SubResource("TileSetAtlasSource_lvwdj")
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_k2uda")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ksici")
@@ -84,12 +85,3 @@ layer_0/tile_data = PackedInt32Array(262146, 1, 0, 327682, 65536, 0, 393218, 655
 
 [node name="Hero" parent="." instance=ExtResource("1_vbawi")]
 position = Vector2(635, 402)
-
-[node name="Goon" parent="." instance=ExtResource("2_3hkb6")]
-position = Vector2(194, 194)
-
-[node name="Goon2" parent="." instance=ExtResource("2_3hkb6")]
-position = Vector2(725, 215)
-
-[node name="Goon3" parent="." instance=ExtResource("2_3hkb6")]
-position = Vector2(409, 337)
