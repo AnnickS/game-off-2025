@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://fgo3biety3ux" path="res://Scenes/Shared_Components/HealthComponent.tscn" id="4_5lc4s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pi6ew"]
-size = Vector2(54, 52)
+size = Vector2(56, 54)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m2v08"]
-radius = 25.0
+radius = 26.0
 
 [node name="Hero" type="CharacterBody2D" node_paths=PackedStringArray("Health", "NavigationAgent", "RecalculatePathTimer")]
 motion_mode = 1
@@ -28,7 +28,7 @@ texture = ExtResource("1_1i8wv")
 Health = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-1, 0)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pi6ew")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_5lc4s")]
