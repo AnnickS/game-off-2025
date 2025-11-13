@@ -3,7 +3,8 @@ using System;
 
 public partial class MainMenu : Control
 {
-	PackedScene StartScene = ResourceLoader.Load<PackedScene>("res://Scenes/Level/Level.tscn");
+	//PackedScene StartScene = ResourceLoader.Load<PackedScene>("res://Scenes/Level/Level.tscn");
+	PackedScene StartScene = ResourceLoader.Load<PackedScene>("res://Scenes/Game_State/Game_State.tscn");
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

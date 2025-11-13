@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwcu2d4ec17hn"]
+[gd_scene load_steps=7 format=3 uid="uid://bwcu2d4ec17hn"]
 
-[ext_resource type="Shader" uid="uid://drn6o6jsayd5l" path="res://Scenes/UI/Blurr_Background.gdshader" id="1_ce0ii"]
+[ext_resource type="Shader" uid="uid://drn6o6jsayd5l" path="res://Shaders/Blurr_Background.gdshader" id="1_ce0ii"]
 [ext_resource type="Script" uid="uid://wjph4cs2jhs2" path="res://Scenes/UI/ToggleVisibilityOnPause.cs" id="1_futms"]
+[ext_resource type="Script" uid="uid://c7no2n4k0ncmo" path="res://Scenes/UI/PauseMenuManager.cs" id="2_futms"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_futms"]
 shader = ExtResource("1_ce0ii")
@@ -18,6 +19,7 @@ font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
 
 [node name="PauseMenu" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,6 +36,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PauseMenuManager" type="Node" parent="."]
+script = ExtResource("2_futms")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -61,6 +66,10 @@ theme_override_fonts/font = SubResource("SystemFont_2ux8a")
 theme_override_font_sizes/font_size = 64
 text = "Pause Menu"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Seperator2" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -96,3 +105,7 @@ layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_ce0ii")
 theme_override_font_sizes/font_size = 24
 text = "Exit Game"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Resume_Button" to="PauseMenuManager" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Main_Menu_Button" to="PauseMenuManager" method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Exit_Button" to="PauseMenuManager" method="_on_exit_button_pressed"]

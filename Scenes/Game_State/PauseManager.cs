@@ -18,10 +18,16 @@ public partial class PauseManager : Node
     {
         if (@event.IsActionPressed("Pause_Game"))
         {
-            isPaused = !isPaused;
-
-            EmitSignal(SignalName.GamePauseToggle, isPaused);
-            GetTree().Paused = isPaused;
+            TogglePause();
         }
+    }
+
+    public void TogglePause()
+    {
+        GD.Print("blah");
+        isPaused = !isPaused;
+
+        EmitSignal(SignalName.GamePauseToggle, isPaused);
+        GetTree().Paused = isPaused;
     }
 }
