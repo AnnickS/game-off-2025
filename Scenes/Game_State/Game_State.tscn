@@ -2,19 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://bwcu2d4ec17hn" path="res://Scenes/UI/Pause_Menu.tscn" id="1_oq0r4"]
 [ext_resource type="Script" uid="uid://jpcaofvecwei" path="res://Scenes/Game_State/PauseManager.cs" id="2_nb263"]
+[ext_resource type="PackedScene" uid="uid://de4r4nti1wte1" path="res://Scenes/Level/Level.tscn" id="2_tt4qw"]
 [ext_resource type="PackedScene" uid="uid://bfhyaip1sm1q2" path="res://Scenes/UI/Game_UI.tscn" id="3_tt4qw"]
-[ext_resource type="Script" uid="uid://wjph4cs2jhs2" path="res://Scenes/UI/ToggleVisibilityOnPause.cs" id="4_2f44x"]
 
-[node name="GameState" type="Node2D"]
+[node name="GameState" type="Node"]
+script = ExtResource("2_nb263")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Level" parent="." instance=ExtResource("2_tt4qw")]
 
 [node name="PauseManager" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("2_nb263")
 
-[node name="PauseMenu" parent="." instance=ExtResource("1_oq0r4")]
+[node name="UI" type="Node" parent="."]
 
-[node name="GameUi" parent="." instance=ExtResource("3_tt4qw")]
-script = ExtResource("4_2f44x")
-visibleOnPause = false
+[node name="GameUi" parent="UI" instance=ExtResource("3_tt4qw")]
+process_mode = 1
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("1_oq0r4")]

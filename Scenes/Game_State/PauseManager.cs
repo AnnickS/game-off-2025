@@ -24,7 +24,6 @@ public partial class PauseManager : Node
 
     public void TogglePause()
     {
-        GD.Print("blah");
         isPaused = !isPaused;
 
         EmitSignal(SignalName.GamePauseToggle, isPaused);
