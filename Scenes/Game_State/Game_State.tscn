@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bfhyaip1sm1q2" path="res://Scenes/UI/Game_UI.tscn" id="3_tt4qw"]
 
 [node name="GameState" type="Node"]
-script = ExtResource("2_nb263")
+process_mode = 3
 
 [node name="Level" parent="." instance=ExtResource("2_tt4qw")]
 
@@ -14,9 +14,7 @@ script = ExtResource("2_nb263")
 process_mode = 3
 script = ExtResource("2_nb263")
 
-[node name="UI" type="Node" parent="."]
-
-[node name="GameUi" parent="UI" instance=ExtResource("3_tt4qw")]
+[node name="GameUi" parent="." instance=ExtResource("3_tt4qw")]
 process_mode = 1
 
-[node name="PauseMenu" parent="UI" instance=ExtResource("1_oq0r4")]
+[node name="PauseMenu" parent="." instance=ExtResource("1_oq0r4")]
