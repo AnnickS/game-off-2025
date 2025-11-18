@@ -28,6 +28,5 @@ public partial class PauseManager : Node
 
         EmitSignal(SignalName.GamePauseToggle, isPaused);
         GetTree().Paused = isPaused;
-        GD.Print("finished");
     }
 }

@@ -4,7 +4,8 @@ using System;
 public partial class Level : Node2D
 {    
     PackedScene PackedGoon = GD.Load<PackedScene>("res://Scenes/Goon/Goon.tscn");
-    public override void _UnhandledInput(InputEvent @event)
+
+    public override void _Input(InputEvent @event)
     {
         base._UnhandledInput(@event);
 
@@ -14,5 +15,10 @@ public partial class Level : Node2D
             NewGoon.Position = eventMouseButton.Position;
             AddChild(NewGoon);
         }
+    }
+
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
     }
 }
