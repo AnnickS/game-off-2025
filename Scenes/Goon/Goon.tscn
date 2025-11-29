@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drw4rvrgalc7u" path="res://Scenes/Goon/Goon.cs" id="1_0u6fc"]
 [ext_resource type="Texture2D" uid="uid://chyrnr2hivevu" path="res://angry_godot.svg" id="1_b4qgb"]
-[ext_resource type="PackedScene" uid="uid://562lheje0e3g" path="res://Scenes/Shared_Components/AttackComponent.tscn" id="2_ldwek"]
+[ext_resource type="PackedScene" uid="uid://562lheje0e3g" path="res://Scenes/Shared_Components/InstantDamageArea.tscn" id="2_ldwek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldwek"]
 size = Vector2(49.5, 49.5)
