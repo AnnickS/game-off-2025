@@ -10,5 +10,5 @@ public partial class Character : Node
     [Export]
     Controller CharacterController;
     [Export]
-    public AttackComponent CurrentAttack { get; private set; }
+    public InstantDamageArea CurrentAttack { get; private set; }
 }

@@ -7,7 +7,7 @@ public partial class Goon : CharacterBody2D
     private float Speed = 275f;
 
     [Export]
-    private AttackComponent Attack;
+    private InstantDamageArea Attack;
 
     [Export]
     private NavigationAgent2D NavigationAgent;

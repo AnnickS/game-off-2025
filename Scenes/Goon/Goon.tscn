@@ -14,7 +14,7 @@ radius = 25.079872
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_0u6fc")
-Attack = NodePath("AttackComponent")
+Attack = NodePath("InstantDamageArea")
 NavigationAgent = NodePath("NavigationAgent2D")
 RecalulatePathTimer = NodePath("RecalculatePath")
 
@@ -22,10 +22,10 @@ RecalulatePathTimer = NodePath("RecalculatePath")
 scale = Vector2(0.4105691, 0.4105691)
 texture = ExtResource("1_b4qgb")
 
-[node name="AttackComponent" parent="." instance=ExtResource("2_ldwek")]
+[node name="InstantDamageArea" parent="." instance=ExtResource("2_ldwek")]
 damage = 40
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InstantDamageArea"]
 shape = SubResource("RectangleShape2D_ldwek")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class AttackComponent : Area2D
+public partial class InstantDamageArea : Area2D
 {
     [Export]
     public int damage;
